@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // News & Articles: Public read and write access for CMS management
+    match /news/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Programs & Projects: Public read and write access for CMS management
+    match /programs/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Gallery Images: Public read and write access for CMS management
+    match /gallery/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Impact Metrics: Public read and write access for CMS management
+    match /impactMetrics/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Contact Messages: Public submission, read, and deletion for CMS management
+    match /contactMessages/{document=**} {
+      allow read, write: if true;
+    }
+
+    // System Metadata
+    match /system_meta/{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
